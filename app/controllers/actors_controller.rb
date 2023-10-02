@@ -14,4 +14,17 @@ class ActorsController < ApplicationController
       
     render({ :template => "actor_templates/show" })
   end
+  def add
+    @actor = Actor.new
+    @actor.name = params.fetch("query_name")
+    @actor.dob = params.fetch("query_dob")
+    @actor.bio = params.fetch("query_bio")
+    @actor.image = params.fetch("query_image")
+    if @actor.valid?
+      @actor.save
+      redirect_to("/actors",{:notice => "Actor added successfully."})
+    else
+      redirect_to("/actors",{:notice => "Actor failed to add successfully"})
+    end
+  end
 end
