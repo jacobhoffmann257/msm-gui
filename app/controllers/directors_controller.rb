@@ -52,8 +52,7 @@ class DirectorsController < ApplicationController
   def update
     id = params.fetch("path_id")
     @director = Director.where({:id => id}).at(0)
-    @director.dob = params.fetch("query_name")
-    @director.date = params.fetch("query_dob")
+    @director.dob = params.fetch("query_dob")
     @director.bio = params.fetch("query_bio")
     @director.image = params.fetch("query_image") 
 
