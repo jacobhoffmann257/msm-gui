@@ -17,10 +17,11 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new
     @movie.title = params.fetch("query_title")
+    @movie.year = params.fetch("quey_year")
     @movie.duration = params.fetch("query_duration")
-    @movie.description = params.fetch("query_direction")
+    @movie.description = params.fetch("query_description")
     @movie.image = params.fetch("query_image")
-    @movie.director_id = params.fetch("query_image_id")
+    @movie.director_id = params.fetch("query_director_id")
     if @movie.valid?
       @movie.save
       redirect_to("/movies", {:notice=> "Movie added successfully."})
