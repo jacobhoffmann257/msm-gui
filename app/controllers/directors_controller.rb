@@ -42,7 +42,7 @@ class DirectorsController < ApplicationController
     @director.dob = params.fetch("query_dob")
     @director.bio = params.fetch("query_bio")
     @director.image = params.fetch("query_image")
-    if @actor_id.valid?
+    if @actor.valid?
       redirect_to("/directors",{:notice => "Director added successfully."})
     else
       redirect_to("/directors",{:notice => "Directors failed to add successfully."})
