@@ -46,4 +46,10 @@ class MoviesController < ApplicationController
     redirect_to("/movies/#{:notice => "Movies failed to update successfully."}")
   end
 end
+def delete
+  the_id = params.fetch("path_id")
+  @movie = Movie.where({:id => the_id}).at(0)
+  @movie.destroy
+  redirect_to("/movies",{:notice => "Movie has been deleted"})
+end
 end

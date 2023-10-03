@@ -1,11 +1,14 @@
 <h1>
   Movie #<%= @the_movie.id %> details
 </h1>
-
+<div>
 <a href="/movies">
   Go back
 </a>
-
+</div>
+<div>
+<a href="/delete_movie/<%= @the_movie.id%>">Delete movie</a>
+</div>
 <hr>
 <form action="/modify_movie/<%=@the_movie.id%>" method="post">
 <div>

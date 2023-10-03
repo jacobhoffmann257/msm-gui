@@ -63,4 +63,10 @@ class DirectorsController < ApplicationController
       redirect_to("/directors/#{@director.id}",{:notice => "Director failed to update successfully."})
     end
   end
+  def delete
+    the_id = params.fetch("path_id")
+    @director = Director.where({:id => the_id}).at(0)
+    @director.destroy
+    redirect_to("/directors",{:notice => "Director has been delt with"})
+  end
 end
